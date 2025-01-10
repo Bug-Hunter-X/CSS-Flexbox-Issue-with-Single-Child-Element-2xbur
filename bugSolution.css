@@ -1,0 +1,50 @@
+To solve this issue and ensure consistent rendering across browsers, you can modify the CSS in several ways:
+
+**Solution 1: Using `justify-content: center`**
+
+If you only need to center a single child element, replacing `space-between` with `center` provides a straightforward solution:
+
+```css
+div {
+  display: flex;
+  justify-content: center;
+}
+div > span {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+}
+```
+
+**Solution 2: Adding a minimum width**
+
+You can apply a minimum width to the container to provide a reference point for `space-between` to function correctly, even with a single child:
+
+```css
+div {
+  display: flex;
+  justify-content: space-between;
+  min-width: 200px; /* or a suitable value */
+}
+div > span {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+}
+```
+
+**Solution 3: Conditional CSS**
+
+For more complex scenarios, use conditional CSS to apply different styles based on the number of child elements. This approach might be overkill for a simple case but can improve the maintainability of more complex layouts:
+
+```css
+div > span {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+}
+div:not(:empty):only-child > span {
+  margin-left:auto;
+  margin-right:auto;
+}
+```
