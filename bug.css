@@ -1,0 +1,15 @@
+The following CSS code snippet causes an unexpected rendering issue in some browsers:
+
+```css
+div {
+  display: flex;
+  justify-content: space-between;
+}
+div > span {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+}
+```
+
+This code intends to create two spans that are equally spaced within a flex container. However, some browsers might not render this correctly if there is only one `span` element inside the `div`, resulting in unexpected spacing or alignment. 
